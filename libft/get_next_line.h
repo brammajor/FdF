@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/06 14:09:18 by brmajor           #+#    #+#             */
-/*   Updated: 2023/06/06 14:14:12 by brmajor          ###   ########.fr       */
+/*   Created: 2023/03/17 12:29:37 by brmajor           #+#    #+#             */
+/*   Updated: 2023/06/08 13:56:41 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_linux/mlx.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	main(void)
-{
-	void	*mlx;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-	mlx = mlx_init();
-}
+# include <stdlib.h>
+# include <unistd.h>
+# include "libft.h"
+
+char	*get_next_line(int fd);
+
+char	*get_line(char *str, char c);
+char	*get_rest_of_line(char *str, char c);
+char	*ft_strjoin(char *dest, char *src);
+
+#endif

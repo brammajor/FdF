@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:30:29 by brmajor           #+#    #+#             */
-/*   Updated: 2023/03/24 13:45:18 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/06/08 13:57:44 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <ft_printf.h>
+# include "ft_printf.h"
+# include "get_next_line.h"
 
 typedef struct s_list
 {
@@ -27,9 +28,8 @@ typedef struct s_list
 
 char				**ft_split(const char *s, char c);
 char				*ft_itoa(int n);
-char				*ft_strchr(const char *s, int c);
 char				*ft_strdup(const char *s);
-char				*ft_strjoin(const char *s1, const char *s2);
+char				*ft_strjoin(char *s1, char *s2);
 char				*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 char				*ft_strrchr(const char *s, int c);
@@ -44,7 +44,7 @@ int					ft_isdigit(int i);
 int					ft_isprint(char c);
 int					ft_lstsize(t_list *lst);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
-int					ft_strlen(const char *s);
+int					ft_strlen(char *s);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
@@ -73,5 +73,7 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+int					ft_strchr(char *str, char c);
 
 #endif

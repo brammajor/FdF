@@ -1,50 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.c                                             :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/06 11:54:50 by brmajor           #+#    #+#             */
-/*   Updated: 2023/06/06 13:51:27 by brmajor          ###   ########.fr       */
+/*   Created: 2023/06/08 12:11:15 by brmajor           #+#    #+#             */
+/*   Updated: 2023/06/08 12:34:10 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FdF.h"
 
-int	get_height(char *file_name)
+char	**make_table(int fd)
 {
-	int		fd;
-	int		y;
-	char	*line;
+	char	**str;
+	int	i;
 
-	fd = open(file_name, O_RDONLY, 0);
-	y = 0;
-	while (get_next_line(fd, &line))i
+	i = 0;
+	while (get_next_line(fd))
 	{
-		y++;
-		free(line);
+		str[i] = get_next_line(fd);
 	}
-	close (fd);
-	return (y);
-}
-
-int	get_width(char *file_name)
-{
-	int		fd;
-	int		x;
-	char	*line;
-
-	fd = open(file_name, O_RDONLY, 0);
-	x = 0;
-	get_next_line(fd, &line);
-	x = ft_count_words(line, ' ');
-	free(line);
-	close(fd);
-	return (x);
-}
-
-void	read_file()
-{
-	
+	while (str[i])
+	{
+		ft_printf("%s\n", str[i]);
+		i++;
+	}
 }

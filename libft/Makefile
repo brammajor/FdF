@@ -6,7 +6,7 @@
 #    By: brmajor <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 14:18:09 by brmajor           #+#    #+#              #
-#    Updated: 2023/05/26 13:52:30 by brmajor          ###   ########.fr        #
+#    Updated: 2023/06/08 12:54:10 by brmajor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ SRC =	ft_atoi.c \
         ft_strtrim.c \
         ft_substr.c \
         ft_tolower.c \
-        ft_toupper.c ft_printf.c putcharf.c putdecf.c puthexf.c putnbrf.c putptrf.c putstrf.c utils.c\
+        ft_toupper.c ft_printf.c putcharf.c putdecf.c puthexf.c putnbrf.c putptrf.c putstrf.c utils.c \
+	get_next_line.c get_next_line_utils.c \
 
 
 BONUS_SRC =	ft_lstnew.c \

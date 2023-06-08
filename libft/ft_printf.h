@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:28:03 by brmajor           #+#    #+#             */
-/*   Updated: 2023/02/08 14:38:27 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/06/08 13:56:43 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <limits.h>
+# include "libft.h"
 
 int	ft_printf(const char *input, ...);
-int	ft_strchr(const char *s, char c);
-int	ft_strlen(char *str);
 int	ft_intlen(int i);
 int	uintlen(unsigned int i);
 int	ft_hexlen(long long i);

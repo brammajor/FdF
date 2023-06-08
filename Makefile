@@ -6,19 +6,27 @@
 #    By: brmajor <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/02 15:19:57 by brmajor           #+#    #+#              #
-#    Updated: 2023/06/06 14:07:23 by brmajor          ###   ########.fr        #
+#    Updated: 2023/06/08 14:19:26 by brmajor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC=
+SRC = main.c read_map.c draw_line.c put_pixel.c FdF.h
 
-CC_FLAGS= -g -Wall -Werror -Wextra
+CC = gcc
 
+NAME = FdF
 
+$(NAME): 
+	$(CC) $(SRC) -L mlx_linux -l mlx_Linux -L /usr/lib -l Xext -l X11 -l m -l z -o $(NAME)
 
-%.o: %.c
-	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+clean:
+
+fclean:
+	rm -rf $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
 
