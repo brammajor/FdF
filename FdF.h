@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 12:13:29 by brmajor           #+#    #+#             */
-/*   Updated: 2023/06/08 14:36:21 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/06/19 10:20:33 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define FDF_H
 
 #include "libft/libft.h"
-#include "libft/ft_printf.h"
-#include "libft/get_next_line.h"
 #include "mlx_linux/mlx.h"
 #include <stdlib.h>
 #include <fcntl.h>
