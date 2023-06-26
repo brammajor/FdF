@@ -6,7 +6,7 @@
 #    By: brmajor <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/02 15:19:57 by brmajor           #+#    #+#              #
-#    Updated: 2023/06/19 10:18:46 by brmajor          ###   ########.fr        #
+#    Updated: 2023/06/19 10:31:56 by brmajor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = FdF
 
 $(NAME):
 	make -C	libft/
-	$(CC) $(SRC) -L libft -L mlx_linux -l mlx_Linux -L /usr/lib -l Xext -l X11 -l m -l z -o $(NAME)
+	$(CC) $(SRC) -L libft -l ft -L mlx_linux -l mlx_Linux -L /usr/lib -l Xext -l X11 -l m -l z -o $(NAME)
 
 all: $(NAME)
 

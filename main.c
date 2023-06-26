@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:23:03 by brmajor           #+#    #+#             */
-/*   Updated: 2023/06/08 13:59:15 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/06/26 12:37:22 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,35 @@
 
 int	main(int ac, char **av)
 {
-	int	fd;
+	int		fd;
+	char	*file_name;
+	t_fdf	*data;
 
 	if (ac != 2)
 		exit (1);
-	fd = open(av[1], O_RDONLY);
-	
+	file_name = av[1];
+	data = (t_fdf *)malloc(sizeof(t_fdf));
+	fd = open(file_name, O_RDONLY);
+	if (!fd)
+		exit (1);
+	read_map(file_name, data);
 
+	int	i;
+	int	j = 0;
+
+	while (data->matrix[j])
+	{
+		i = 0;
+		while (data->matrix[j][i])
+		{
+			ft_printf("%3i", data->matrix[j][i]);
+			i++;
+		}
+		ft_printf("\n");
+		j++;
+	}
+	close(fd);
+}
 /*	void	*mlx;
 	void	*window;
 	t_data	d;
@@ -34,4 +56,4 @@ int	main(int ac, char **av)
 	mlx_put_image_to_window(mlx, window, d.img, 0, 0);
 	mlx_loop(mlx);
 */
-}
+

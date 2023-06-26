@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 12:13:29 by brmajor           #+#    #+#             */
-/*   Updated: 2023/06/19 10:20:33 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/06/26 12:34:02 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 # define FDF_H
 
 #include "libft/libft.h"
+#include "libft/ft_printf/ft_printf.h"
+#include "libft/get_next_line/get_next_line.h"
 #include "mlx_linux/mlx.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
 
@@ -49,6 +52,12 @@ typedef struct	s_data
 
 void	my_mlx_pixel_put(t_data *d, t_pixel p);
 void	draw_line(t_pixel p1, t_pixel p2, t_data *d);
+char	**make_table(int fd);
+
+void	read_map(char *file_name, t_fdf *data);
+void	fill_matrix(int *i_line, char *line);
+int	get_width(char *file_name);
+int	get_height(char *file_name);
 
 #endif
 

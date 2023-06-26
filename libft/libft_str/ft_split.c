@@ -6,13 +6,13 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:51:57 by brmajor           #+#    #+#             */
-/*   Updated: 2023/02/09 16:39:05 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/06/26 11:46:09 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static void	ft_free(char **arr)
+void	ft_free(char **arr)
 {
 	int	i;
 
@@ -25,9 +25,9 @@ static void	ft_free(char **arr)
 	free(arr);
 }
 
-static void	ft_allocate(char **arr, char const *s, char sep)
+void	ft_allocate(char **arr, char *s, char sep)
 {
-	char const	*tmp;
+	char	*tmp;
 
 	tmp = s;
 	while (*tmp)
@@ -52,7 +52,7 @@ static void	ft_allocate(char **arr, char const *s, char sep)
 	*arr = NULL;
 }
 
-static int	ft_count_words(char const *s, char sep)
+int	ft_count_words(char *s, char sep)
 {
 	int	word_count;
 
@@ -69,7 +69,7 @@ static int	ft_count_words(char const *s, char sep)
 	return (word_count);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**new;
 	int		size;

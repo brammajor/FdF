@@ -6,13 +6,13 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 14:00:16 by brmajor           #+#    #+#             */
-/*   Updated: 2023/02/24 13:05:20 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/06/19 10:43:31 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(char *str)
+int	gnl_ft_strlen(char *str)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*gnl_ft_strjoin(char *s1, char *s2)
 {
 	char		*u;
 	size_t		i;
@@ -39,19 +39,19 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	if (!s2)
 		return (NULL);
-	u = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	u = malloc(gnl_ft_strlen(s1) + gnl_ft_strlen(s2) + 1);
 	if (!u)
 		return (NULL);
 	while (s1[++i])
 		u[i] = s1[i];
 	while (s2[j])
 		u[i++] = s2[j++];
-	u[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	u[gnl_ft_strlen(s1) + gnl_ft_strlen(s2)] = '\0';
 	free(s1);
 	return (u);
 }
 
-int	ft_strchr(char *str, char c)
+int	gnl_ft_strchr(char *str, char c)
 {
 	int	i;
 
@@ -82,7 +82,7 @@ char	*get_rest_of_line(char *str, char c)
 		free(str);
 		return (NULL);
 	}
-	new = malloc(ft_strlen(str) - i + 1);
+	new = malloc(gnl_ft_strlen(str) - i + 1);
 	if (!new)
 		return (NULL);
 	i++;
