@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:23:03 by brmajor           #+#    #+#             */
-/*   Updated: 2023/06/26 12:37:22 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/06/28 13:37:09 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 int	main(int ac, char **av)
 {
-	int		fd;
 	char	*file_name;
 	t_fdf	*data;
 
@@ -23,27 +22,23 @@ int	main(int ac, char **av)
 		exit (1);
 	file_name = av[1];
 	data = (t_fdf *)malloc(sizeof(t_fdf));
-	fd = open(file_name, O_RDONLY);
-	if (!fd)
-		exit (1);
 	read_map(file_name, data);
 
-	int	i;
-	int	j = 0;
+	int	i = 0;
+	int	j;
 
-	while (data->matrix[j])
+	while (i < data->y)
 	{
-		i = 0;
-		while (data->matrix[j][i])
+		j = 0;
+		while (j < data->x)
 		{
-			ft_printf("%3i", data->matrix[j][i]);
-			i++;
+			ft_printf("%d ", data->matrix[i][j]);
+			j++;
 		}
-		ft_printf("\n");
-		j++;
+		i++;
 	}
-	close(fd);
 }
+
 /*	void	*mlx;
 	void	*window;
 	t_data	d;

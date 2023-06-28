@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:11:15 by brmajor           #+#    #+#             */
-/*   Updated: 2023/06/26 14:28:27 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/06/28 14:11:40 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	fill_matrix(int *i_line, char *line)
 
 	nums = ft_split(line, ' ');
 	i = 0;
-	while (nums[i])
+	while (nums[i] != NULL)
 	{
 		i_line[i] = ft_atoi(nums[i]);
 		free(nums[i]);
@@ -79,9 +79,8 @@ void	read_map(char *file_name, t_fdf *data)
 	line = get_next_line(fd);
 	fill_matrix(data->matrix[i], line);
 	i++;
-	while (line)
+	while (line != NULL)
 	{
-		free(line);
 		line = get_next_line(fd);
 		fill_matrix(data->matrix[i], line);
 		i++;
