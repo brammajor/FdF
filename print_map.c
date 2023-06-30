@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_line.c                                        :+:      :+:    :+:   */
+/*   print_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 11:36:59 by brmajor           #+#    #+#             */
-/*   Updated: 2023/06/30 13:45:35 by brmajor          ###   ########.fr       */
+/*   Created: 2023/06/30 14:25:46 by brmajor           #+#    #+#             */
+/*   Updated: 2023/06/30 16:27:35 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FdF.h"
 
-void	draw_line(t_pixel p1, t_pixel p2, t_data *data)
+void	print_map(char *file_name)
 {
-	int	dx = abs(p2.x - p1.x);
-	int	dy = abs(p2.y - p1.y);
-	int	sx = (p1.x < p2.x) ? 1 : -1;
-	int	sy = (p1.y < p2.y) ? 1 : -1;
-	int	err = dx - dy;
+	int		fd;
+	char	*line;
 
-	while (p1.x != p2.x || p1.y != p2.y)
+	fd = open(file_name, O_RDONLY);
+	line = get_next_line(fd);
+	while (line)
 	{
-		my_mlx_pixel_put(data, p1);
-		int e2 = 2 * err;
-		if (e2 > -dy)
-		{
-			err -= dy;
-			p1.x += sx;
-		}
-		if (e2 < dx)
-		{
-			err += dx;
-			p1.y += sy;
-		}
+		ft_printf("%s", line);
+		free(line);
+		line = get_next_line(fd);
 	}
+	free(line);
+	close(fd);
 }

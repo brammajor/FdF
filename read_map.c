@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:11:15 by brmajor           #+#    #+#             */
-/*   Updated: 2023/06/28 14:11:40 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/06/30 15:32:46 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	get_height(char *file_name)
 	char	*line;
 
 	fd = open(file_name, O_RDONLY);
-	y = 0;
+	y = -1;
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -53,11 +53,10 @@ void	fill_matrix(int *i_line, char *line)
 
 	nums = ft_split(line, ' ');
 	i = 0;
-	while (nums[i] != NULL)
+	while (nums[i])
 	{
 		i_line[i] = ft_atoi(nums[i]);
-		free(nums[i]);
-		i++;
+		free(nums[i++]);
 	}
 	free(nums);
 }
@@ -73,17 +72,15 @@ void	read_map(char *file_name, t_fdf *data)
 	data->matrix = (int **)malloc(sizeof(int *) * (data->y + 1));
 	i = 0;
 	while (i <= data->y)
-		data->matrix[i++] = (int *)malloc(sizeof(int) * (data->x + 1));
+		data->matrix[i++] = (int *)malloc(sizeof(int) * (data->x));
 	fd = open(file_name, O_RDONLY);
 	i = 0;
 	line = get_next_line(fd);
-	fill_matrix(data->matrix[i], line);
-	i++;
-	while (line != NULL)
+	while (line)
 	{
+		fill_matrix(data->matrix[i++], line);
+		free(line);
 		line = get_next_line(fd);
-		fill_matrix(data->matrix[i], line);
-		i++;
 	}
 	free(line);
 	close(fd);
