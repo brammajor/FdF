@@ -6,11 +6,19 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 11:36:59 by brmajor           #+#    #+#             */
-/*   Updated: 2023/06/30 13:45:35 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/07/03 12:23:18 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FdF.h"
+
+void	my_mlx_pixel_put(t_data *data, t_pixel p)
+{
+	char	*dst;
+
+	dst = data->addr + (p.y * data->line_len + p.x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = p.color;
+}
 
 void	draw_line(t_pixel p1, t_pixel p2, t_data *data)
 {

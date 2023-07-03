@@ -6,11 +6,11 @@
 #    By: brmajor <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/02 15:19:57 by brmajor           #+#    #+#              #
-#    Updated: 2023/06/30 14:33:55 by brmajor          ###   ########.fr        #
+#    Updated: 2023/07/03 11:59:00 by brmajor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.c read_map.c draw_line.c put_pixel.c errors.c print_map.c FdF.h 
+SRC = main.c read_map.c draw_line.c errors.c print_map.c FdF.h 
 
 CC = gcc
 

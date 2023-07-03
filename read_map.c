@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:11:15 by brmajor           #+#    #+#             */
-/*   Updated: 2023/06/30 15:32:46 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/07/03 12:26:57 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,28 +61,28 @@ void	fill_matrix(int *i_line, char *line)
 	free(nums);
 }
 
-void	read_map(char *file_name, t_fdf *data)
+void	read_map(char *file_name, t_fdf *fdf)
 {
 	int		fd;
 	int		i;
 	char	*line;
 
-	data->y = get_height(file_name);
-	data->x = get_width(file_name);
-	data->matrix = (int **)malloc(sizeof(int *) * (data->y + 1));
+	fdf->y = get_height(file_name);
+	fdf->x = get_width(file_name);
+	fdf->matrix = (int **)malloc(sizeof(int *) * (fdf->y + 1));
 	i = 0;
-	while (i <= data->y)
-		data->matrix[i++] = (int *)malloc(sizeof(int) * (data->x));
+	while (i <= fdf->y)
+		fdf->matrix[i++] = (int *)malloc(sizeof(int) * (fdf->x));
 	fd = open(file_name, O_RDONLY);
 	i = 0;
 	line = get_next_line(fd);
 	while (line)
 	{
-		fill_matrix(data->matrix[i++], line);
+		fill_matrix(fdf->matrix[i++], line);
 		free(line);
 		line = get_next_line(fd);
 	}
 	free(line);
 	close(fd);
-	data->matrix[i] = NULL;
+	fdf->matrix[i] = NULL;
 }
