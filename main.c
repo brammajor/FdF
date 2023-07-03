@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:23:03 by brmajor           #+#    #+#             */
-/*   Updated: 2023/07/03 12:21:19 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/07/03 12:31:53 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 	error_check_width(av[1]);
 	fdf = (t_fdf *)malloc(sizeof(t_fdf));
 	print_map(av[1]);
-//	read_map(av[1], fdf);
+	read_map(av[1], fdf);
 
 	mlx = mlx_init();
 	window = mlx_new_window(mlx, 1920, 1080, "FdF");
