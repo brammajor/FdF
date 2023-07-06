@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 11:36:59 by brmajor           #+#    #+#             */
-/*   Updated: 2023/07/05 17:10:01 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/07/06 16:38:27 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ t_pixel	project_2d(t_pixel p, t_fdf *fdf)
 {
 	t_pixel	new_p;
 
-	new_p.x = (p.x - p.y) * cos(0.8);
-	new_p.y = (p.x + p.y) * sin(0.8) - p.z;
+	new_p.x = (p.x - p.y) * cos(0.5);
+	new_p.y = (p.x + p.y) * sin(0.5) - p.z;
 	return (new_p);
 }
 
@@ -49,7 +49,7 @@ void	my_mlx_pixel_put(t_data *data, t_pixel p)
 	p.color = 0x0000FF00;
 	if (p.z > 0)
 		p.color = 0xFFFF0000;
-	dst = data->addr + (p.y * data->line_len + p.x * (data->bits_per_pixel / 8));
+	dst = data->addr + ((p.y + 200) * data->line_len + (p.x + 1500) * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = p.color;
 }
 
@@ -70,6 +70,7 @@ void	draw_line(t_pixel p1, t_pixel p2, t_data *data, t_fdf *fdf)
 	iso_p1 = project_2d(p1, fdf);
 	iso_p2 = project_2d(p2, fdf);
 	iso_p1.z = p1.z;
+	iso_p2.z = p2.z;
 
 	draw = init_draw(iso_p1, iso_p2, data);
 

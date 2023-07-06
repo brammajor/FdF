@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 12:13:29 by brmajor           #+#    #+#             */
-/*   Updated: 2023/07/05 16:44:17 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/07/06 17:21:35 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ typedef struct	s_draw
 	int	e2;
 }		t_draw;
 
-typedef struct	s_vec
+typedef struct	s_mlx
 {
-	int	x;
-	int	y;
-}		t_vec;
+	void	*mlx;
+	void	*window;
+}		t_mlx;
 
 typedef struct	s_pixel
 {
@@ -63,6 +63,8 @@ typedef struct	s_data
 	int		endian;
 	int		zoom;
 	int		color;
+	int		window_x;
+	int		window_y;
 }			t_data;
 
 t_draw	*init_draw(t_pixel p1, t_pixel p2, t_data *data);
@@ -81,6 +83,11 @@ void	print_map(char *file_name);
 void	free_array(int **arr, int len);
 
 void	draw_map(t_fdf *fdf, t_data *data);
+
+int		close_window(t_mlx *x, int keycode);
+
+int	close_window_key(int keycode, t_mlx *x);
+
 
 #endif
 
